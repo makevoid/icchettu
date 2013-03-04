@@ -13,6 +13,10 @@ end
 include Utils
 
 env = ENV["RACK_ENV"] || "development"
-DataMapper.setup :default, "mysql://localhost/icchettu_#{env}"
+password = File.read(File.expand_path "~/.password").strip
+
+user = env == "production" ? "root:#{password}@" : ""
+DataMapper.setup :default, "mysql://#{user}localhost/icchettu_#{env}"
+
 require_all "#{path}/models"
 DataMapper.finalize
