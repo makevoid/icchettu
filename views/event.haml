@@ -1,0 +1,16 @@
+- location = @event.location
+
+%h2= @event.name
+
+.date= @event.date.strftime("%d %B %Y")
+
+.location
+  - link_to location.name, "/locations/#{location.name_url}"
+
+%p
+  = @event.description
+
+%p
+  via:
+  %a{ href: @event.source_url }
+    firenzenotte

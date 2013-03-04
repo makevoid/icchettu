@@ -1,0 +1,16 @@
+!!! 5
+%html
+  - TITLE = "Icchettuffai a Firenze"
+  %head
+    %title= TITLE
+    %link{ rel: "stylesheet", href: "/css/main.css" }
+    = partial :metas
+
+  %body
+    #container
+      %header
+        %h1
+          - link_to TITLE, "/"
+      %nav
+      %section.content= yield
+    %script{ type: "text/javascript", src: "/js/app.js" }

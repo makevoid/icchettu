@@ -1,0 +1,7 @@
+%h1 Eventi
+
+- @events_days.each do |day, events|
+  .day= day.strftime "%d %B"
+  .events
+    - for event in events
+      = partial :event, event

@@ -1,0 +1,11 @@
+%h2= @location.name
+
+.address
+  = @location.address
+
+.description
+  = @location.description
+
+.events
+  - for event in @location.events
+    = partial :event, event
